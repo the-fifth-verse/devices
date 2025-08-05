@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>The Fifth Verse Redirect</title>
+
+  <!-- Immediately run a tiny script before anything is rendered -->
+  <script>
+    (function () {
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Android ➜ Google Play
+      if (/android/i.test(ua)) {
+        window.location.replace("https://play.google.com/store/apps/details?id=com.thefifthverse.app");
+      }
+      // Everything else ➜ website
+      else {
+        window.location.replace("https://www.thefifthverse.com/");
+      }
+      /*  window.location.replace() prevents this intermediate page
+          from staying in the browser history */
+    })();
+  </script>
+</head>
+<body></body>
+</html>
