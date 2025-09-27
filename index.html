@@ -9,13 +9,17 @@
     (function () {
       var ua = navigator.userAgent || navigator.vendor || window.opera;
 
+      // iOS (iPhone/iPad/iPod) ➜ App Store
+      if (/iPad|iPhone|iPod/.test(ua)) {
+        window.location.replace("https://apps.apple.com/us/app/the-fifth-verse/id6748741732");
+      }
       // Android ➜ Google Play
-      if (/android/i.test(ua)) {
+      else if (/android/i.test(ua)) {
         window.location.replace("https://play.google.com/store/apps/details?id=com.thefifthverse.app");
       }
-      // Everything else ➜ website
+      // Desktop/Everything else ➜ download page
       else {
-        window.location.replace("https://www.thefifthverse.com/");
+        window.location.replace("https://www.thefifthverse.com/download");
       }
       /*  window.location.replace() prevents this intermediate page
           from staying in the browser history */
