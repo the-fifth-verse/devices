@@ -11,7 +11,8 @@
 
       // iOS (iPhone/iPad/iPod) ➜ App Store
       if (/iPad|iPhone|iPod/.test(ua)) {
-        window.location.replace("https://apps.apple.com/us/app/the-fifth-verse/id6748741732");
+        // For iOS, use window.location.href instead of replace to better handle app store redirects
+        window.location.href = "https://apps.apple.com/us/app/the-fifth-verse/id6748741732";
       }
       // Android ➜ Google Play
       else if (/android/i.test(ua)) {
@@ -21,10 +22,13 @@
       else {
         window.location.replace("https://www.thefifthverse.com/download");
       }
-      /*  window.location.replace() prevents this intermediate page
-          from staying in the browser history */
     })();
   </script>
 </head>
-<body></body>
+<body>
+  <!-- Add a fallback message for iOS users in case JavaScript takes time to load -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://www.thefifthverse.com/download">
+  </noscript>
+</body>
 </html>
